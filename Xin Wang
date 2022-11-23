@@ -1,1 +1,112 @@
 Hello World!
+\documentclass{beamer}
+\usetheme{Warsaw}
+\usepackage{graphicx}
+\usefonttheme[onlymath]{serif}
+\usepackage{mathpazo}
+\usepackage{ragged2e}
+\justifying\let\raggedright\justifying
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+\title{Finance and the sources of growth}
+\author{Thorsten Beck\\
+Ross Levine\\
+Norman Loayza\\
+Presentor:Xin Wang}
+
+\date{}
+\begin{document}
+
+\frame{\titlepage}
+\begin{frame}\frametitle{Outline}
+    \tableofcontents
+\end{frame}
+
+\section{Introduction}
+\begin{frame}[c]\frametitle{Question}
+    \begin{itemize}
+        \item Joseph Schumpeter argued in 1911 that ``financial intermediaries play a pivotal role in economic development because they choose which ``firms get to use
+        society's savings (see Schumpeter, 1934).
+       \item They empirically assess the impact of ``nancial intermediaries on private savings rates, capital accumulation, produc-
+       tivity growth, and overall economic growth.
+       \item Try to understand cross-country di!erences in both the level and growth rate of total factor productivity.
+       \item They examine whether economies with better-developed ``nancial intermediaries (i) grow faster, (ii) enjoy faster rates of productivity growth, (iii) experience more rapid capital accumulation, and (iv) have higher savings
+       rates.
+        \end{itemize}
+\end{frame}
+
+\begin{frame}[c]\frametitle{literature Review}
+    \begin{itemize}
+        \item To measure financial intermediary development, they employ a variable called Private Credit, which equals the value of credits by financial
+        intermediaries to the private sector divided by GDP.
+        \item e compute Growth for each country by running a least-squares regression of the logarithm of real per capita GDP on a constant and a time trend. We use the
+        estimated coefficient on the time trend as the growth rate.
+        \item Capgrowth equals the growth rate of the per capita physical capital stock.They use the aggregate real investment series from the Penn-World Tables (5.6, henceforth PWT) and the perpetual inventory method
+        with a depreciation rate of seven percent to compute capital stocks in later years.
+        \end{itemize}
+
+\end{frame}
+
+\begin{frame}[c]\frametitle{literature Review}
+    \begin{itemize}
+        \item In terms of exogeneity, the English, French, and German legal systems were spread mainly through occupation and colonialism. Thus, we take the legal origin of a country as an exogenous endowment. Furthermore, we provide specification tests regarding
+        the validity of the instruments
+        \item a growing body of evidence suggests that legal origin helps shape financial development.
+        \item LLSV (1998) show that the legal origin of a country materially in#uences its legal treatment of shareholders, the laws governing creditor rights, the efficiency of contract enforcement, and
+        accounting standards.
+        \end{itemize}
+
+\end{frame}
+
+\begin{frame}[c]\frametitle{literature Review}
+    \begin{itemize}
+        \item In the pure cross-sectional analysis we use data averaged for 63 countries over 1960-1995, such that there is one observation per country. The cross-country sample for private saving has 61 countries over the period 1971-1995. 
+        The basic regression takes the form 
+        \item $Y_i=\alpha+\beta Finance_i+\gamma^'X_i+\varepsilon_i$
+        \item They use natural logarithms of the regressors in the regressions of Growth, Capgrowth, and Prod
+        \item They construct a panel that consists of data for 77 countries over the period 1960-1995. They average the data over seven non-overlapping 5-year periods. The panel sample for private saving includes 72 countries and five 5-year periods
+        between 1971 and 1995.
+        \end{itemize}
+
+\end{frame}
+
+\begin{frame}[c]\frametitle{literature Review}
+    \begin{itemize}
+        \item $y_{i,t}=\alpha^'X^1_{i,t-1}+\beta^'X^2_{i,t}+\mu_i+\lambda_t+\varepsilon_{i,t}$
+        \end{itemize}
+
+\end{frame}
+
+\section{Measurement}
+\begin{frame}[c]\frametitle{Basic Game}
+    \begin{itemize}
+         \item They consider a class of static games, indexed by realizations of covariates $x \in X$. Let $N = \{1, \ldots, n\}$ be the finite set of players; each player $i \in N$ chooses an action $y_i$ from the finite set
+        $Y_i$. Both the actions' space $Y = \times_{i\in N} Y_i$ and $N$ are the same across different games
+       \item Each player $i$ is characterized by a payoff type $\varepsilon_i \in \mathcal{E}_i$. Payoff types $\varepsilon = (\varepsilon_1, \ldots , \varepsilon_n)$
+       are distributed according to the cdf $F(\cdot; \theta_\varepsilon)$, parametrized by the finite dimensional vector
+      $ \theta_\varepsilon \in \Theta_\varepsilon$. $F$ as players' prior.
+       \item Payoffs to player $i$, denoted by $\pi_i$, depend
+       on her payoff type and on action profiles. Observable covariates $x$ and finite dimensional
+       payoff parameters $\theta_\pi \in \Theta_\pi$ also affect payoffs. The payoff function $\pi_i$, for any pair $(x, \theta_\pi)$,
+       is $\pi_i(·; x, \theta_\pi) : Y \times \mathcal{E}_i \to R$. $\varepsilon$ is independent of $x$.
+       
+        \end{itemize}
+
+\end{frame}
+
+\begin{frame}[c]\frametitle{Information Structure}
+\begin{itemize}
+       \item Every player $i$ knows her payoff type $\varepsilon_i$, as well as parameters $\theta$ and covariates $x$, but may
+       not observe $\varepsilon_{-i}$
+       \item They assume that in each game with covariates $x$ players receive a private signal $\tau_i^x = (\varepsilon_i, \tilde{\tau}_i^x)$.
+       \item An information structure $S^x$ specifies the set of signals a player may receive and
+       the probability of receiving them. $S^x = (T^x, \{ P^x_{\tilde{\tau} \mid \varepsilon} : \varepsilon \in \mathcal{E} \})$
+       \item $T^x = \mathcal{E} \times \tilde{T}^x$ and $\tilde{T}^x$ is a complete, separable metric space that represents the support
+       of the vector of additional signals $\tilde{\tau}^x = (\tilde{\tau}_1^x , \ldots , \tilde{\tau}_n^x)$. $\mathcal{S} = (S^x)_{x \in X}$
+        \end{itemize}
+    \end{frame}
+
+
+
+\end{document}

@@ -23,88 +23,128 @@ Presentor:Xin Wang}
 \end{frame}
 
 \section{Introduction}
-\begin{frame}[c]\frametitle{Question}
+
+\begin{frame}[c]\frametitle{Introduction}
     \begin{itemize}
-        \item Joseph Schumpeter argued in 1911 that ``financial intermediaries play a pivotal role in economic development because they choose which ``firms get to use
-        society's savings (see Schumpeter, 1934).
-       \item They empirically assess the impact of ``nancial intermediaries on private savings rates, capital accumulation, produc-
-       tivity growth, and overall economic growth.
-       \item Try to understand cross-country di!erences in both the level and growth rate of total factor productivity.
-       \item They examine whether economies with better-developed ``nancial intermediaries (i) grow faster, (ii) enjoy faster rates of productivity growth, (iii) experience more rapid capital accumulation, and (iv) have higher savings
-       rates.
+        \item Gender wage gap is persistent and prevalent in the US.
+       \item This paper shows turnover and human capital dynamics are important factors in explaining gender wage gap.
+       \item They establish a structural model of wage dynamics, estimate it using NLSY79 data and do some counterfactual analysis.
         \end{itemize}
 \end{frame}
 
-\begin{frame}[c]\frametitle{literature Review}
+\begin{frame}[c]\frametitle{Data}
     \begin{itemize}
-        \item To measure financial intermediary development, they employ a variable called Private Credit, which equals the value of credits by financial
-        intermediaries to the private sector divided by GDP.
-        \item e compute Growth for each country by running a least-squares regression of the logarithm of real per capita GDP on a constant and a time trend. We use the
-        estimated coefficient on the time trend as the growth rate.
-        \item Capgrowth equals the growth rate of the per capita physical capital stock.They use the aggregate real investment series from the Penn-World Tables (5.6, henceforth PWT) and the perpetual inventory method
-        with a depreciation rate of seven percent to compute capital stocks in later years.
+        \item They use NLSY79 data and focus on period after the individuals' graduation.
+       \item They exclude the individuals who never get employed after 15 years of graduation. Unemployment and out-of-the-labor force are both treated as non-employment state.
+       \item They distinguish two group:high school graduates are those who have 12 to 15 years of schooling, college graduates are those who have 16 to 20 years of schooling.
+       \item They restrict their sample to non-minority individuals who did not have any child while in school.
+       \item They have 1,376 men and 1,331 women in the high school group, and 653 men and 681 women in the college group.
         \end{itemize}
-
 \end{frame}
 
-\begin{frame}[c]\frametitle{literature Review}
+\begin{frame}[t]\frametitle{Gender wage gaps over the life-cycle}
     \begin{itemize}
-        \item In terms of exogeneity, the English, French, and German legal systems were spread mainly through occupation and colonialism. Thus, we take the legal origin of a country as an exogenous endowment. Furthermore, we provide specification tests regarding
-        the validity of the instruments
-        \item a growing body of evidence suggests that legal origin helps shape financial development.
-        \item LLSV (1998) show that the legal origin of a country materially influences its legal treatment of shareholders, the laws governing creditor rights, the efficiency of contract enforcement, and
-        accounting standards.
-        \end{itemize}
-
-\end{frame}
-
-\begin{frame}[c]\frametitle{literature Review}
-    \begin{itemize}
-        \item In the pure cross-sectional analysis we use data averaged for 63 countries over $1960-1995$, such that there is one observation per country. The cross-country sample for private saving has 61 countries over the period $1971-199$5. 
-        The basic regression takes the form 
-        \item $Y_i=\alpha+\beta Finance_i+\gamma^{'} X_i+\varepsilon_i$
-        \item They use natural logarithms of the regressors in the regressions of Growth, Capgrowth, and Prod
-        \item They construct a panel that consists of data for 77 countries over the period $1960-1995$. They average the data over seven non-overlapping 5-year periods. The panel sample for private saving includes 72 countries and five 5-year periods
-        between 1971 and 1995.
-        \end{itemize}
-
-\end{frame}
-
-\begin{frame}[c]\frametitle{literature Review}
-    \begin{itemize}
-        \item $y_{i,t}=\alpha^{'}X^1_{i,t-1}+\beta^{'}X^2_{i,t}+\mu_i+\lambda_t+\varepsilon_{i,t}$
-        \end{itemize}
-
-\end{frame}
-
-\begin{frame}[c]\frametitle{literature Review}
-    \begin{itemize}
-        \item $y_{i,t}=\alpha^{'}X^1_{i,t-1}+\beta^{'} X^2_{i,t}+\mu_i+\lambda_t+\varepsilon_{i,t}$
-        \item $y_{i,t}-y_{i,t-1}=\alpha^{'}(X^1_{i,t-1}-X^1_{i,t-2})+\beta^{'} (X^2_{i,t}-X^2_{i,t-1})+\varepsilon_{i,t}-\varepsilon_{i,t-1}$
-        \item $E[X_{i,t-s}*(\varepsilon_{i,t}-\varepsilon_{i,t-1})]=0$ for $s\geq2;t=3,\ldots,T$.
-        \item $E[X_{i,t+p}*\mu_i]=E[X_{i,t+q}*\mu_i]$ for all $p$ and $q$.
-        \item $E[(X_{i,t-s}-X_{i,t-s-1})*(\varepsilon_{i,t}+\mu_i)]=0$ for $s=1;t=3,\ldots,T$.
-
-        \end{itemize}
-
+        \item  $w_{i t}$ denotes the log hourly real wage of individual $i$ in week $t$, $M_{i t}$ denotes the number
+        of months worker $i$ has spent in the labor force , and $\tau_y$ are calendar year
+        fixed effects. 
+         $ w_{i t}=\beta_0Male_i+\sum_{m=1}^{180}[\alpha_m \mathbb{1}[M_{i t}=m]+\beta_m(Male_i \mathbb{1}[M_{i t}=m])]+\tau_y+\varepsilon_{i t}$
+        \end{itemize}  
+        \begin{figure}
+            \begin{center}
+            \includegraphics[width=0.9\textwidth]{2}
+            \end{center}
+            \end{figure}   
 \end{frame}
 
 
-\begin{frame}[c]\frametitle{Test}
-    \begin{itemize}
-        \item The consistency of the GMM estimator depends both on the validity of the assumption that the error term, $\varepsilon$, does not exhibit serial correlation and on the
-        validity of the instruments.
-        \item They use two tests proposed by Arellano and Bond (1991) to test these assumptions. 
-        The first is a Sargan test of over-identifying restrictions, which tests the overall validity of the instruments. 
-        The second test examines the assumption of no serial correlation in the error terms.
+\begin{frame}[c]\frametitle{Gender differences in turnover}
+    \begin{figure}
+        \begin{center}
+        \includegraphics[width=1\textwidth]{3}
+        \end{center}
+        \end{figure} 
+\end{frame}
+\begin{frame}[c]\frametitle{Gender differences in turnover}
+    \begin{figure}
+        \begin{center}
+        \includegraphics[width=1\textwidth]{4}
+        \end{center}
+        \end{figure} 
+\end{frame}
+\begin{frame}[c]\frametitle{Gender differences in turnover}
+    \begin{figure}
+        \begin{center}
+        \includegraphics[width=1\textwidth]{5}
+        \end{center}
+        \end{figure} 
+\end{frame}
 
+\begin{frame}[c]\frametitle{Model}
+    \begin{itemize}
+        \item The structure of the model is same for four groups(man-high school,man-college,woman-high school and woman-college).
+       \item Workers exit the labor market permanently at rate $\phi$,new inflow of workers enter at same rate.
+       \item Workers' initial human capital level, $\varepsilon$, drawn from an exogenous distribution $A(\varepsilon)$ with support $[\underline{\varepsilon}, \bar{\varepsilon}]$. a type $\varepsilon$ worker with
+       actual experience $x$ has productivity$ y = \varepsilon e^{\rho x}$.
+       \item Jobs are heterogeneous in productivity, $p$, drawn from an exogenous distribution $\Gamma(p)$ with support $[\underline{p}, \bar{p}]$
+       \item Every employer posts  wage rate $z$ to all potential applicants,worker gets paid a wage $w = zy$,The productivity of the match $(y, p)$ is $yp$, so employers' profit is $(p-z)y$
         \end{itemize}
+\end{frame}
+\begin{frame}[c]\frametitle{Model}
+    \begin{itemize}
+       \item A worker can have children in either employment or unemployment at Poisson rate $\gamma_1$
+       \item  For those who are employed at childbirth, a share $\eta$ will return to their old jobs— their childcare period is denoted by $OJ$ and ends at rate $\gamma_2$.
+       \item Childcare period for who do not return to their old jobs is denoted by $NJ$ and terminates at a different rate $\gamma_3$
+       \item Jobs are heterogeneous in productivity, $p$, drawn from an exogenous distribution $\Gamma(p)$ with support $[\underline{p}, \bar{p}]$
+       \item  Those who are unemployed at childbirth will enter childcare periods of the $NJ$ type. If the worker has a second child while in $OJ$, she goes into the state $NJ$.The probability that the worker returns to her old job, $\eta$, is taken as exogenous in the model.
+        \end{itemize}
+\end{frame}
+\begin{frame}[c]\frametitle{Worker Behavior}
+
+    \textbf{Proposition 1}. For a fixed $F(\cdot)$ with bounded and non-negative support, optimal job search implies that all unemployed workers have the same reservation cutoff $z^R$, which exists, is unique and is implicitly defined by\\
+   \begin{center}
+  $ \zeta_1(z^R-b)+\frac{(r+\phi) \zeta_2}{\lambda_u}(b^{\text {out }}-b)+\rho(b+\frac{\gamma_1}{r+\phi+\gamma_3} b^{\text {out }})$ \\
+        $=[\zeta_1(\lambda_u-\lambda_e)-\rho \lambda_u+(r+\phi) \zeta_2] \int_{z^R}^{\bar{z}} \frac{\bar{F}(z)}{r+q(z)-\rho-\frac{\eta \gamma_1 \gamma_2}{r+\phi+\gamma_1+\gamma_2}} d z $
+\end{center} 
+        where $\zeta_1=r+\phi+\gamma_1-\frac{\gamma_1 \gamma_3}{r+\phi+\gamma_3}$, $\zeta_2=\frac{\lambda_u \gamma_1 \eta\left(\gamma_3-\gamma_2\right)}{\left(r+\phi+\gamma_3\right)\left(r+\phi+\gamma_1+\gamma_2\right)}$, $q(z)=\phi+\delta+\gamma_1+\lambda_e \bar{F}(z)$
+
+
+\end{frame}
+\begin{frame}[c]\frametitle{Employer}
+ 
+    \textbf{Proposition 2}. The optimal policy function, $z =\xi(p)$, i) can be expressed as \\
+     \begin{center}
+       $\xi(p)=p-M(\xi(p))^2 \int_{z^R}^p \frac{1}{M(\xi(p^{\prime}))^2} d p^{\prime}$
+       \end{center} 
+       where  $M(\xi(p))=q(\xi(p))-\frac{\eta \gamma_1 \gamma_2}{\phi+\gamma_1+\gamma_2}-\rho$ and \\
+       ii) $\xi(p)$ is increasing in $p$ so that more productive jobs post higher wage offers. \\
+
+       \textbf{Theorem 1}. For any $\rho > \phi$, a steady-state market equilibrium exists and is unique.
+
+     
 
 \end{frame}
 
+\begin{frame}[c]\frametitle{identification}
+    \begin{itemize}
+        \item  They normalize the minimum worker type $\log(\varepsilon)$ to zero. Workers' initial productivity distribution as $A(\varepsilon) \sim Weibull(\alpha_1, \alpha_2)$ over the support $[1,\infty)$.
+        \item  The productivity distribution of jobs is parametrized as $\Gamma(p) \sim Weibull(\kappa_1,\kappa_2)$ over the support $[\underline{p}, \bar{p}]$.
+        \item  Monthly discount factor $r = 0.0041$. The exit rate $\phi=0.0033$, set $b^{out} = b$.
+        \item There are thus fifteen parameters to estimate for each gender-education group $\rho,\underline{p}, \bar{p},\kappa_1, \kappa_2, \alpha_1, \alpha_2, b, \gamma_1, \gamma_2, \gamma_3, \eta, \delta, \lambda_e$, and $\lambda_u$
+         \end{itemize}
+    
+     
 
+\end{frame}
+\begin{frame}[c]\frametitle{identification}
+    \begin{itemize}
+        \item  The seven Poisson rates $\gamma_1, \gamma_2, \gamma_3, \eta, \delta, \lambda_e,\lambda_u$ have direct data counterparts and are thus exactly identified.
+        \item For the rest of 8 parameters, they use the mean,variance, and skewness of log wages distribution together with the average wage change during job-to-job transitions evaluated at actual experience years from 1 to 10.
+        \item These add up to 40 moments and they use GMM to estimate the 8 parameters.
+         \end{itemize}
+    
+     
 
-
+\end{frame}
 
 
 \end{document}

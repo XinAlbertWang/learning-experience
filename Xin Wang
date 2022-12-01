@@ -148,3 +148,139 @@ Presentor:Xin Wang}
 
 
 \end{document}
+
+
+\documentclass{beamer}
+\usetheme{Warsaw}
+\usepackage{graphicx}
+\usefonttheme[onlymath]{serif}
+\usepackage{mathpazo}
+\usepackage{ragged2e}
+\justifying\let\raggedright\justifying
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+\title{Financial development and innovation:Cross-country evidence}
+\author{Po-Hsuan Hsu\\
+ Xuan Tian\\
+Yan Xu\\
+Presentor:Xin Wang}
+
+\date{}
+\begin{document}
+
+\frame{\titlepage}
+\begin{frame}\frametitle{Outline}
+    \tableofcontents
+\end{frame}
+
+\section{Introduction}
+
+\begin{frame}[c]\frametitle{Inroduction}
+    \begin{itemize}
+        \item Innovation is the key factor in driving economic growth and gaining competitive advantage for one country.
+        \item But the process of innovation may be very long, unpredictable and lead to total failure.
+        \item Financial markets play critical roles in reducing financing costs, allocating scarce resources, evaluating innovative projects, managing risk.
+        \end{itemize}
+\end{frame}
+
+\begin{frame}[c]\frametitle{Question}
+    \begin{itemize}
+        \item Hypothesis 1. Equity market development will promote innovation in industries that are more dependent on
+        external finance. Credit market development will discourage innovation in industries that are more dependent on
+        external finance.
+        \item Equity market investors share upside returns and there are no collateral requirements for equity financing
+        \item Equity markets produce useful information. Under rational expectations, investors are able to extract the relevant yet noisy information from equilibrium prices
+        \item Innovative firms often have unstable and limited amounts of internally generated cash flows to service debt.
+        \end{itemize}
+\end{frame}
+
+\begin{frame}[c]\frametitle{Question}
+    \begin{itemize}
+        \item Hypothesis 2. Equity market development will promote innovation in high-tech industries. Credit market development will discourage innovation in high-tech industries.
+        \item Industries that are more high-tech intensive are typically riskier than industries that are less prone to high technologies.
+        \item Equity markets provide a rich set of risk management tools, encouraging investors to shift their portfolios toward projects not only with higher risk but also higher expected returns.
+        \item Banks excessively avoid risky activities and failures. Therefore, their control could lead firms to under-invest in innovative projects with high uncertainty
+        \end{itemize}
+\end{frame}
+
+\section{Data and Measurement}
+\begin{frame}[c]\frametitle{Data and Measurement}
+    \begin{itemize}
+        \item $Patent_{j,i,t}$, is the number of eventually granted patents in two-digit standard industrial classification (SIC) industry $j$ that are invented
+        by individuals or non-government institutions from country $i$ in year $t$. 
+        \item It's from the NBER patent database that contains detailed information of all USPTO-approved patents in the period 1976-2006.
+        \end{itemize}
+\end{frame}
+
+\begin{frame}[c]\frametitle{Data and Measurement}
+    \begin{itemize}
+        \item $Equity_{i,t}$ is the ratio of country $i$'s stock market capitalization in year $t$ over its GDP in year $t$. Stock market capitalization means the summation of share price times the number
+        of shares outstanding of each listed stock.
+        \item $Credit_{i,t}$ is the ratio of country $i$'s domestic credit provided by the banking sector in year $t$ over its GDP in year $t$. They collect these annual financial market development data
+        from  the World Development Indicators and Global Development Finance database.
+        \end{itemize}
+\end{frame}
+
+\begin{frame}[c]\frametitle{Data and Measurement}
+    \begin{itemize}
+        \item They construct industry $j$'s share of total value added in manufacturing industries in country $i$ in year $t$, $Value-Added_{j,i,t}$,using the Industrial Statistics Database of the United
+        Nations Industrial Development Organization (UNIDO).
+        \item They also construct $US-Export_{j,i,t}$, as industry $j$'s share of country $i$'s total export to the US in year $t$, using the United Nations Commodity Trade Statistics database.
+        \end{itemize}
+\end{frame}
+
+\begin{frame}[c]\frametitle{Data and Measurement}
+    \begin{itemize}
+        \item They collect the year-end data of cash flows from operations, capital expenditures, and R\&D expenses of all public firms listed in three major US stock exchanges from the Compustat database.
+        \end{itemize}
+\end{frame}
+
+\begin{frame}[c]\frametitle{Data and Measurement}
+    \begin{itemize}
+        \item They calculate each firm's dependence on external finance as capital expenditures plus R\&D expenses minus cash flows from operations, all divided by the sum of capital expenditures and R\&D expenses. Each industry's dependence on
+         external finance is calculated as the median of all firms'dependence on external finance in a year. They then compute $Dependence_j$ as the time series median of industry $j$'s dependence on external finance.
+        \item They calculate each firm's high-tech intensiveness as the time series median of its annual gross growth in R\&D expenses during the period 1976-2006. 
+              Industry $j$'s high-tech intensiveness is calculated as the cross sectional median of all firms' high-tech intensiveness in that industry.
+        \end{itemize}
+\end{frame}
+
+
+\section{Identification}
+\begin{frame}[c]\frametitle{Identification}
+    \begin{itemize}
+        \item $Innovation_{j,i,t+1}=\beta_0+\beta_1(Equity_{i,t} \times Industry_j)+\beta_2(Credit_{i,t} \times Industry_j)+\beta_3 Value-Added_{j,i,t}+\beta_4 US-Export_{j,i,t}+\eta_{i,t+1}+\mu_j+\varepsilon_{i,j,t+1}$
+        \item $Innovation_{j,i,t+1}$ is $Patent_{j,i,t}$ here. $Industry_j$ is either $Dependence_j$ or $High-tech_j$ that captures economic mechanisms and helps with identification.
+        \item $\eta_{i,t+1}$ is the country-year fixed effect. $\mu_j$ is the industry fixed effect.
+        \end{itemize}
+\end{frame}
+
+\section{Result}
+\begin{frame}[c]\frametitle{Result}
+    \begin{figure}
+        \begin{center}
+        \includegraphics[width=1.1\textwidth]{1}
+        \end{center}
+        \end{figure} 
+\end{frame}
+
+\begin{frame}[c]\frametitle{Result}
+    \begin{figure}
+        \begin{center}
+        \includegraphics[width=1.1\textwidth]{2}
+        \end{center}
+        \end{figure} 
+\end{frame}
+
+\section{conclusion}
+\begin{frame}[c]\frametitle{Conclusion}
+    \begin{itemize}
+        \item By Using a large data set that includes 32 countries between 1976 and 2006 and a fixed effects identification strategy, they show that industries that are more dependent on external finance and that are more high-tech intensive
+        exhibit a disproportionally higher innovation level in countries with better developed equity markets. However, the development of credit markets appears to discourage innovation.
+        \item Economies with good growth opportunities develop financial markets to provide the funds necessary to support their good growth prospects.Simultaneity problem may still exist.
+
+        \end{itemize}
+\end{frame}
+\end{document}
+
+

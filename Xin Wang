@@ -1,286 +1,373 @@
-\documentclass{beamer}
-\usetheme{Warsaw}
-\usepackage{graphicx}
-\usefonttheme[onlymath]{serif}
-\usepackage{mathpazo}
-\usepackage{ragged2e}
-\justifying\let\raggedright\justifying
-\setbeamertemplate{caption}[numbered]
-\setbeamertemplate{navigation symbols}{}
-\setbeamertemplate{footline}[frame number]
-\title{Finance and the sources of growth}
-\author{Thorsten Beck\\
-Ross Levine\\
-Norman Loayza\\
-Presentor:Xin Wang}
 
-\date{}
+\documentclass[12pt]{article}
+% 这里是设置四边边距
+\usepackage[top=1.25in, bottom=1.25in, left=1.25in, right=1.25in]{geometry} 
+\usepackage[utf8]{inputenc} % Uses the utf8 input encoding
+% --------------- math --------------- %
+\usepackage{amssymb}
+\usepackage{amsmath} % For typesetting math
+\usepackage{mathrsfs}
+% ---------------- fonts --------------- %
+\usepackage[T1]{fontenc}
+\usepackage{txfonts} % Times
+%\usepackage{ccfonts} % CM Concrete
+%\usepackage{cmbright} % CM Bright
+% 
+\usepackage{ntheorem} % Introduce the theorem environment
+\usepackage[colorlinks,
+            linkcolor=blue,
+            ]{hyperref}
+\usepackage{listings} % A source code printer
+\usepackage{flafter}
+\usepackage{indentfirst} % Para. indent at first line
+\usepackage{setspace}
+\usepackage{color}
+\usepackage{graphicx}
+%
+% --------------- citing --------------- %
+\usepackage{natbib}
+% \usepackage{apacite}
+\usepackage{hyperref}
+ \hypersetup{
+       colorlinks = False,
+       urlcolor = Sepia,
+       citecolor = MidnightBlue
+ }
+%
+\linespread{2} % 行间距 
+\setlength{\parskip}{4pt} % 段间距
+\setlength{\parindent}{2em} % 段首行空两个字
+
+\renewcommand\thesection{\Roman{section}}
+\renewcommand\thesubsection{\roman{subsection}}
+
+\renewcommand\bibname{References}
+
+\title{Search Theory and Over-the-Counter Markets}
+\author{Xin Wang}
+\date{\today}
+
+%--------------------------------------------------%
+%                  Document Begin                  %
+%--------------------------------------------------%
+
 \begin{document}
 
-\frame{\titlepage}
-\begin{frame}\frametitle{Outline}
-    \tableofcontents
-\end{frame}
+\maketitle
 
+%--------------------------------------------------%
+%           Question, Data and Approach            %
+%--------------------------------------------------%
 \section{Introduction}
+\par
+Centralized financial markets are often all-to-all trading platforms with strict transparency policy. 
+For example, Many main stock exchanges, American Stock Exchange, Toronto Stock Exchange, 
+are organized in this way. But nowadays more than half of the financial trade take place in the
+decentralized markets (or over-the-counter market) rather than centralized markets. Over-the-counter (OTC) markets are typically extremely fragmented. The investors may trade with only one
+dealer or a few dealers. There is often very weak transparency policy in OTC markets. Investors don't know how many quotes can be traded before their negotiation with dealers. The quates and 
+prices are not publicly announced, which may lead to investors' imperfect information about overall market conditions. The typical assets that are traded in the OTC markets are fixed-income securities, 
+derivatives, repos, and federal funds loans. In 2018, the value of all domestic assets traded in OTC markets are more than 50000 billion US dollars which exceed the assets value traded in the 
+centralized markets by over 20000 billion US dollars (\citet{weill2020search}). 
+\par
+The OTC markets play a key role in 2008 financial crisis and are in the center of many policy debates. In the financial crisis, the trading volume in many OTC markets collapse, which leads to 
+debate on the reactions the government should take. Should the government engage in large-scale purchase of mortgage-backed securities (MBS)? Should the assets traded previously in the OTC 
+markets now be traded in the more centralized financial markets with more transparent information disclosure mechanism? Should those credit derivatives be centrally cleared to deal with systemic 
+risk existed in the OTC markets for credit derivatives? All of these policy debates require rigorous theoretical analysis for OTC markets as basis.
+\par
+It is very natural to apply search theory to the study OTC markets. There are several reasons to justify search theory provides reasonable and tractable method. First, OTC markets are typically 
+extremely fragmented, which means investors need time to search for the potential dealer rather than can find dealers instantly in the centralized financial market. Second, investors can choose who 
+they want to trade and when they trade, there is no restriction which force the investor to trade with any group or any particular dealer. Third, there is opportunity cost which may be enhanced by the 
+pricing mechanism for investors to delay the trade. Financially distressed institutions are often willing to concede a huge magnitude of price, which support that delaying trade is very costly \citet{duffie2010presidential}.
 
-\begin{frame}[c]\frametitle{Introduction}
-    \begin{itemize}
-        \item Gender wage gap is persistent and prevalent in the US.
-       \item This paper shows turnover and human capital dynamics are important factors in explaining gender wage gap.
-       \item They establish a structural model of wage dynamics, estimate it using NLSY79 data and do some counterfactual analysis.
-        \end{itemize}
-\end{frame}
+\section{Benchmark Model}
+\par
+Most literature analyzing OTC markets follow the pioneering work by \citet{duffie2005over}. In their model, they assume there are four types of investors according to whether they endowed and 
+hold assets (pay dividends each period) and whether they need to pay a cost when they hold assets. At the successive event times of a Poisson process, all four types of investors can contact another 
+investor from the investor population followed with a uniform distribution. They also assume investor can meet with a marketmaker when the investor needs to bargain the term of trade with 
+marketmakers. Marketmakers can buy the assets from $lo$ investors (hold assets but need to pay a fixed cost) and sell assets to $hn$ (don't hold assets and don't need to pay cost when hold) investors. 
+Meanwhile, marketmakers have access to an interdealer market where marketmakers can trade the assets immediately.
+\par
+They prove there is a unique constant steady-state equilibrium in their model. In equilibrium, only $lo$ investors and $hn$ investors want to trade. They bargain over the price of assets when 
+they contact each other. When they meet with the marketmakers, they also bargain over the price. An investor's bargaining power depends on the availability (how quickly she can find another 
+counterparty or another marketmaker) of other potential trader. An marketmaker's bargaining power depends on the price interdealer offers. 
+\par
+They consider their model in several extreme cases. First, when there is only a monopolistic marketmaker, the ask price (when marketmaker sell the assets to $lo$ investors) is larger than the 
+price negotiated between $hn$ and $lo$ investors, and the bid price (when marketmaker buy the assets from $hn$ investors) is lower than the price negotiate between $hn$ and $lo$ investors. 
+Second, when investors contact each other more quickly or the intermediation by competing marketmakers become faster, the three prices converge to the same price which determined in the 
+Walrasian equilibrium, while the result become a little different in monopolistic marketmaker case. If investors contact with each other more quickly, the bid-ask spread (difference between ask price 
+and bid price) disappears. However, if investors contact with marketmaker more frequently, the bid-ask spread will increase due to the relatively poorer outside options for the investors. If the 
+marketmaker already meet the most need for trading, then it is harder for investor to find a counterparty herself, which will lower the bargaining position of investors with marketmaker. Third, 
+they consider the case where the investor may have different level of access to marketmakers, they show those investors with better access to marketmaker will face smaller bid-ask spread. There may 
+be no chance to trade for those investors who have lower search intensity. Fourth, if marketmakers can choose their search intensity, a monopolistic marketmaker will replace many trades between 
+$lo$ and $hn$ investor, which will cause efficiency loss. The social welfare may be even worse in the competitive marketmaker case where marketmakers provide even more intermediation.
+\section{Following development}
+\par
+After \citet{duffie2005over}, many researchers try to reconsider their model in the new environment and extend their model into different directions. The following literature review 
+is organized by the new methodology or new theme the researchers consider in their papers.
 
-\begin{frame}[c]\frametitle{Data}
-    \begin{itemize}
-        \item They use NLSY79 data and focus on period after the individuals' graduation.
-       \item They exclude the individuals who never get employed after 15 years of graduation. Unemployment and out-of-the-labor force are both treated as non-employment state.
-       \item They distinguish two group:high school graduates are those who have 12 to 15 years of schooling, college graduates are those who have 16 to 20 years of schooling.
-       \item They restrict their sample to non-minority individuals who did not have any child while in school.
-       \item They have 1,376 men and 1,331 women in the high school group, and 653 men and 681 women in the college group.
-        \end{itemize}
-\end{frame}
+\subsection{Fully Decentralized Markets}
 
-\begin{frame}[t]\frametitle{Gender wage gaps over the life-cycle}
-    \begin{itemize}
-        \item  $w_{i t}$ denotes the log hourly real wage of individual $i$ in week $t$, $M_{i t}$ denotes the number
-        of months worker $i$ has spent in the labor force , and $\tau_y$ are calendar year
-        fixed effects. 
-         $ w_{i t}=\beta_0Male_i+\sum_{m=1}^{180}[\alpha_m \mathbb{1}[M_{i t}=m]+\beta_m(Male_i \mathbb{1}[M_{i t}=m])]+\tau_y+\varepsilon_{i t}$
-        \end{itemize}  
-        \begin{figure}
-            \begin{center}
-            \includegraphics[width=0.9\textwidth]{2}
-            \end{center}
-            \end{figure}   
-\end{frame}
+\subsection{Entry Decision}
+\par
+In the benchmark model, the number of investors and marketmakers are exogeneously given. They can't choose to enter or exit markets. Many researchers study the effect of endogenous entry decisions in the models.
+\citet{afonso2011liquidity} shows the entry of investors can reduce trading cost, but also may casue concentration on one side of market which reduce the return to enter the markets. These two effects have different 
+effects on new investors' entry decision. \citet{atkeson2015entry} establish a model to analyze the welfare effect of bankers' decisions on entry and role in the markets. They show bankers have two incentive (hedge risk 
+and make intermediation profits) to enter the markets. There is often too many bankers entering markets as dealers and too little bankers entering markets as customers than the social optimality. Bankers may exit too much 
+than the social optimality when the economy faces a negative shock. \citet{gavazza2016empirical} finds excessive entry of dealers which causing welfare loss in the secondary market of commercial aircraft. \citet{sambalaibat2022theory} consider
+ a model for bond and credit default swap (CDS) markets where investors can decide on their participation. They show CDS can attract new investors into the credit market and increase the price and liquidity of bonds.
+ \citet{10.1093/restud/rdac014} propose a model in which investors can invest on different contact technology. If the cost of investment on contact technology is linear, there will be overinvestment on contact technology in equilibrium.
 
-
-\begin{frame}[c]\frametitle{Gender differences in turnover}
-    \begin{figure}
-        \begin{center}
-        \includegraphics[width=1\textwidth]{3}
-        \end{center}
-        \end{figure} 
-\end{frame}
-\begin{frame}[c]\frametitle{Gender differences in turnover}
-    \begin{figure}
-        \begin{center}
-        \includegraphics[width=1\textwidth]{4}
-        \end{center}
-        \end{figure} 
-\end{frame}
-\begin{frame}[c]\frametitle{Gender differences in turnover}
-    \begin{figure}
-        \begin{center}
-        \includegraphics[width=1\textwidth]{5}
-        \end{center}
-        \end{figure} 
-\end{frame}
-
-\begin{frame}[c]\frametitle{Model}
-    \begin{itemize}
-        \item The structure of the model is same for four groups(man-high school,man-college,woman-high school and woman-college).
-       \item Workers exit the labor market permanently at rate $\phi$,new inflow of workers enter at same rate.
-       \item Workers' initial human capital level, $\varepsilon$, drawn from an exogenous distribution $A(\varepsilon)$ with support $[\underline{\varepsilon}, \bar{\varepsilon}]$. a type $\varepsilon$ worker with
-       actual experience $x$ has productivity$ y = \varepsilon e^{\rho x}$.
-       \item Jobs are heterogeneous in productivity, $p$, drawn from an exogenous distribution $\Gamma(p)$ with support $[\underline{p}, \bar{p}]$
-       \item Every employer posts  wage rate $z$ to all potential applicants,worker gets paid a wage $w = zy$,The productivity of the match $(y, p)$ is $yp$, so employers' profit is $(p-z)y$
-        \end{itemize}
-\end{frame}
-\begin{frame}[c]\frametitle{Model}
-    \begin{itemize}
-       \item A worker can have children in either employment or unemployment at Poisson rate $\gamma_1$
-       \item  For those who are employed at childbirth, a share $\eta$ will return to their old jobs— their childcare period is denoted by $OJ$ and ends at rate $\gamma_2$.
-       \item Childcare period for who do not return to their old jobs is denoted by $NJ$ and terminates at a different rate $\gamma_3$
-       \item Jobs are heterogeneous in productivity, $p$, drawn from an exogenous distribution $\Gamma(p)$ with support $[\underline{p}, \bar{p}]$
-       \item  Those who are unemployed at childbirth will enter childcare periods of the $NJ$ type. If the worker has a second child while in $OJ$, she goes into the state $NJ$.The probability that the worker returns to her old job, $\eta$, is taken as exogenous in the model.
-        \end{itemize}
-\end{frame}
-\begin{frame}[c]\frametitle{Worker Behavior}
-
-    \textbf{Proposition 1}. For a fixed $F(\cdot)$ with bounded and non-negative support, optimal job search implies that all unemployed workers have the same reservation cutoff $z^R$, which exists, is unique and is implicitly defined by\\
-   \begin{center}
-  $ \zeta_1(z^R-b)+\frac{(r+\phi) \zeta_2}{\lambda_u}(b^{\text {out }}-b)+\rho(b+\frac{\gamma_1}{r+\phi+\gamma_3} b^{\text {out }})$ \\
-        $=[\zeta_1(\lambda_u-\lambda_e)-\rho \lambda_u+(r+\phi) \zeta_2] \int_{z^R}^{\bar{z}} \frac{\bar{F}(z)}{r+q(z)-\rho-\frac{\eta \gamma_1 \gamma_2}{r+\phi+\gamma_1+\gamma_2}} d z $
-\end{center} 
-        where $\zeta_1=r+\phi+\gamma_1-\frac{\gamma_1 \gamma_3}{r+\phi+\gamma_3}$, $\zeta_2=\frac{\lambda_u \gamma_1 \eta\left(\gamma_3-\gamma_2\right)}{\left(r+\phi+\gamma_3\right)\left(r+\phi+\gamma_1+\gamma_2\right)}$, $q(z)=\phi+\delta+\gamma_1+\lambda_e \bar{F}(z)$
+\subsection{Repeated Trade}
+\par
+In the labor search model, such as \citet{burdett1998wage},workers usually can have a long-term relationship with firms and their relationship is exclusive. Unlike what the labor search models
+often assume, in the most search models of OTC markets, buyer and seller can only trade once and they can't form any long-term relationship. There are few exception. \citet{zhang2018liquidity} 
+establishs a framework in which dealers and traders can form a long-term relationship to understand the Liquidity misallocation in OTC markets.\citet{zhu2012finding} provides a dynamic model of
+opaque OTC markets. They show if the seller repeat concacting the same buyer, it will reveal the limited outside options of seller to buyer, which lead to worse price of assets offered by buyer.
+\citet{afonso2013trading} also show that trading relationships is not exclusive in the US overnight interbank lending market. Borrowers and lenders can form many simultaneous relationships. 
+\subsection{Asset Holdings}
+\par
+Because \citet{duffie2005over} assume investors have linear utility, they can restrict their attension to the case investors either hold one or zero units of asset. If we assume the investors have 
+more sophisticated utility, then we should consider how the investors decide on the amount of assets they hold. \citet{garleanu2009portfolio} finds the optimal portfolio choice of investors depend
+on the liquidity when they remove the assumption of either one or zero units of asset holdings.\citet{lagos2009liquidity} shows,by assuming unrestricted asset holdings, the individual asset demands 
+shape the volume of trading, bid-ask spreads, and trading delays.Recent literature consider the unrestricted asset holdings in fully decentralized markets. \citet{afonso2015trade} develop a search model 
+for federal fund markets which explains the determinants of federal fund rate and market reallocation. In the work by \citet{uslu2019pricing}, he assumes investors are heterogenous in preferences, 
+inventories, and meeting rates. The Investors with higher meeting rates determine the intermediation patterns and they tend to have more extreme asset holdings. \citet{uslu2019liquidity} propose a 
+dynamic model with multi-asset holdings and show how cross-asset spillover effects shape the trade volume, price dispersion based on their model.
+\subsection{Structural Estimation}
+\par
+Rigorous empirical studies focusing on structural estimation of search model for OTC markets are sparse. Among the rare literature on structural research of OTC markets, \citet{feldhutter2012same} 
+uses the difference between prices paid by small traders and those paid by large traders to identify the liquidity crises based on a search model of OTC markets with periods investors have selling 
+pressures. He proposes a maximum likelihood method to estimate parameters of the model by using corporate bond transactions data from the TRACE database. \citet{gavazza2016empirical} estimates a search 
+model of OTC markets to quantify the effect of trading friction on welfare and the effects of intermediaries on trade in the commercial aircraft markets.\citet{brancaccio2017learning}  propose 
+and estimate a dynamic model of OTC markets which explains the dealers' learning in the municipal bond market. \citet{liu2020dealers} proposes a model with dealers choosing different search 
+intensities and estimate the model using transaction data on U.S. corporate bonds. \citet{coen2022structural} propose and estimate a model of OTC markets in which firms have heterogeneous search costs.
+This enable them to study the reliance of market liquidity and its effects on trade stress,bank capital regulation and new trading technologies.
 
 
-\end{frame}
-\begin{frame}[c]\frametitle{Employer}
- 
-    \textbf{Proposition 2}. The optimal policy function, $z =\xi(p)$, i) can be expressed as \\
-     \begin{center}
-       $\xi(p)=p-M(\xi(p))^2 \int_{z^R}^p \frac{1}{M(\xi(p^{\prime}))^2} d p^{\prime}$
-       \end{center} 
-       where  $M(\xi(p))=q(\xi(p))-\frac{\eta \gamma_1 \gamma_2}{\phi+\gamma_1+\gamma_2}-\rho$ and \\
-       ii) $\xi(p)$ is increasing in $p$ so that more productive jobs post higher wage offers. \\
 
-       \textbf{Theorem 1}. For any $\rho > \phi$, a steady-state market equilibrium exists and is unique.
+%--------------------------------------------------%
+%                     Reference                    %
+%--------------------------------------------------%
+\newpage
 
-     
+\bibliographystyle{apalike}
+\bibliography{ref}
 
-\end{frame}
 
-\begin{frame}[c]\frametitle{identification}
-    \begin{itemize}
-        \item  They normalize the minimum worker type $\log(\varepsilon)$ to zero. Workers' initial productivity distribution as $A(\varepsilon) \sim Weibull(\alpha_1, \alpha_2)$ over the support $[1,\infty)$.
-        \item  The productivity distribution of jobs is parametrized as $\Gamma(p) \sim Weibull(\kappa_1,\kappa_2)$ over the support $[\underline{p}, \bar{p}]$.
-        \item  Monthly discount factor $r = 0.0041$. The exit rate $\phi=0.0033$, set $b^{out} = b$.
-        \item There are thus fifteen parameters to estimate for each gender-education group $\rho,\underline{p}, \bar{p},\kappa_1, \kappa_2, \alpha_1, \alpha_2, b, \gamma_1, \gamma_2, \gamma_3, \eta, \delta, \lambda_e$, and $\lambda_u$
-         \end{itemize}
-    
-     
 
-\end{frame}
-\begin{frame}[c]\frametitle{identification}
-    \begin{itemize}
-        \item  The seven Poisson rates $\gamma_1, \gamma_2, \gamma_3, \eta, \delta, \lambda_e,\lambda_u$ have direct data counterparts and are thus exactly identified.
-        \item For the rest of 8 parameters, they use the mean,variance, and skewness of log wages distribution together with the average wage change during job-to-job transitions evaluated at actual experience years from 1 to 10.
-        \item These add up to 40 moments and they use GMM to estimate the 8 parameters.
-         \end{itemize}
-    
-     
-
-\end{frame}
 
 
 \end{document}
 
+@article{weill2020search,
+  title={The search theory of over-the-counter markets},
+  author={Weill, Pierre-Olivier},
+  journal={Annual Review of Economics},
+  volume={12},
+  pages={747--773},
+  year={2020},
+  publisher={Annual Reviews}
+}
 
-\documentclass{beamer}
-\usetheme{Warsaw}
-\usepackage{graphicx}
-\usefonttheme[onlymath]{serif}
-\usepackage{mathpazo}
-\usepackage{ragged2e}
-\justifying\let\raggedright\justifying
-\setbeamertemplate{caption}[numbered]
-\setbeamertemplate{navigation symbols}{}
-\setbeamertemplate{footline}[frame number]
-\title{Financial development and innovation:Cross-country evidence}
-\author{Po-Hsuan Hsu\\
- Xuan Tian\\
-Yan Xu\\
-Presentor:Xin Wang}
+@article{duffie2010presidential,
+  title={Presidential address: Asset price dynamics with slow-moving capital},
+  author={Duffie, Darrell},
+  journal={The Journal of finance},
+  volume={65},
+  number={4},
+  pages={1237--1267},
+  year={2010},
+  publisher={Wiley Online Library}
+}
 
-\date{}
-\begin{document}
+@article{duffie2005over,
+  title={Over-the-counter markets},
+  author={Duffie, Darrell and G{\^a}rleanu, Nicolae and Pedersen, Lasse Heje},
+  journal={Econometrica},
+  volume={73},
+  number={6},
+  pages={1815--1847},
+  year={2005},
+  publisher={Wiley Online Library}
+}
 
-\frame{\titlepage}
-\begin{frame}\frametitle{Outline}
-    \tableofcontents
-\end{frame}
+@article{feldhutter2012same,
+  title={The same bond at different prices: identifying search frictions and selling pressures},
+  author={Feldh{\"u}tter, Peter},
+  journal={The Review of Financial Studies},
+  volume={25},
+  number={4},
+  pages={1155--1206},
+  year={2012},
+  publisher={Society for Financial Studies}
+}
 
-\section{Introduction}
+@article{gavazza2016empirical,
+  title={An empirical equilibrium model of a decentralized asset market},
+  author={Gavazza, Alessandro},
+  journal={Econometrica},
+  volume={84},
+  number={5},
+  pages={1755--1798},
+  year={2016},
+  publisher={Wiley Online Library}
+}
 
-\begin{frame}[c]\frametitle{Inroduction}
-    \begin{itemize}
-        \item Innovation is the key factor in driving economic growth and gaining competitive advantage for one country.
-        \item But the process of innovation may be very long, unpredictable and lead to total failure.
-        \item Financial markets play critical roles in reducing financing costs, allocating scarce resources, evaluating innovative projects, managing risk.
-        \end{itemize}
-\end{frame}
+@article{brancaccio2017learning,
+  title={Learning by trading: The case of the US market for municipal bonds},
+  author={Brancaccio, Giulia and Li, Dan and Sch{\"u}rhoff, Norman},
+  journal={Unpublished paper. Princeton University},
+  year={2017}
+}
 
-\begin{frame}[c]\frametitle{Question}
-    \begin{itemize}
-        \item Hypothesis 1. Equity market development will promote innovation in industries that are more dependent on
-        external finance. Credit market development will discourage innovation in industries that are more dependent on
-        external finance.
-        \item Equity market investors share upside returns and there are no collateral requirements for equity financing
-        \item Equity markets produce useful information. Under rational expectations, investors are able to extract the relevant yet noisy information from equilibrium prices
-        \item Innovative firms often have unstable and limited amounts of internally generated cash flows to service debt.
-        \end{itemize}
-\end{frame}
+@article{liu2020dealers,
+  title={Dealers' Search Intensity in US Corporate Bond Markets},
+  author={Liu, Shuo},
+  journal={Available at SSRN 3644132},
+  year={2020}
+}
 
-\begin{frame}[c]\frametitle{Question}
-    \begin{itemize}
-        \item Hypothesis 2. Equity market development will promote innovation in high-tech industries. Credit market development will discourage innovation in high-tech industries.
-        \item Industries that are more high-tech intensive are typically riskier than industries that are less prone to high technologies.
-        \item Equity markets provide a rich set of risk management tools, encouraging investors to shift their portfolios toward projects not only with higher risk but also higher expected returns.
-        \item Banks excessively avoid risky activities and failures. Therefore, their control could lead firms to under-invest in innovative projects with high uncertainty
-        \end{itemize}
-\end{frame}
+@article{coen2022structural,
+  title={A structural model of liquidity in over-the-counter markets},
+  author={Coen, Jamie and Coen, Patrick},
+  year={2022},
+  publisher={Bank of England Working Paper}
+}
 
-\section{Data and Measurement}
-\begin{frame}[c]\frametitle{Data and Measurement}
-    \begin{itemize}
-        \item $Patent_{j,i,t}$, is the number of eventually granted patents in two-digit standard industrial classification (SIC) industry $j$ that are invented
-        by individuals or non-government institutions from country $i$ in year $t$. 
-        \item It's from the NBER patent database that contains detailed information of all USPTO-approved patents in the period 1976-2006.
-        \end{itemize}
-\end{frame}
+@article{burdett1998wage,
+  title={Wage differentials, employer size, and unemployment},
+  author={Burdett, Kenneth and Mortensen, Dale T},
+  journal={International Economic Review},
+  pages={257--273},
+  year={1998},
+  publisher={JSTOR}
+}
 
-\begin{frame}[c]\frametitle{Data and Measurement}
-    \begin{itemize}
-        \item $Equity_{i,t}$ is the ratio of country $i$'s stock market capitalization in year $t$ over its GDP in year $t$. Stock market capitalization means the summation of share price times the number
-        of shares outstanding of each listed stock.
-        \item $Credit_{i,t}$ is the ratio of country $i$'s domestic credit provided by the banking sector in year $t$ over its GDP in year $t$. They collect these annual financial market development data
-        from  the World Development Indicators and Global Development Finance database.
-        \end{itemize}
-\end{frame}
-
-\begin{frame}[c]\frametitle{Data and Measurement}
-    \begin{itemize}
-        \item They construct industry $j$'s share of total value added in manufacturing industries in country $i$ in year $t$, $Value-Added_{j,i,t}$,using the Industrial Statistics Database of the United
-        Nations Industrial Development Organization (UNIDO).
-        \item They also construct $US-Export_{j,i,t}$, as industry $j$'s share of country $i$'s total export to the US in year $t$, using the United Nations Commodity Trade Statistics database.
-        \end{itemize}
-\end{frame}
-
-\begin{frame}[c]\frametitle{Data and Measurement}
-    \begin{itemize}
-        \item They collect the year-end data of cash flows from operations, capital expenditures, and R\&D expenses of all public firms listed in three major US stock exchanges from the Compustat database.
-        \end{itemize}
-\end{frame}
-
-\begin{frame}[c]\frametitle{Data and Measurement}
-    \begin{itemize}
-        \item They calculate each firm's dependence on external finance as capital expenditures plus R\&D expenses minus cash flows from operations, all divided by the sum of capital expenditures and R\&D expenses. Each industry's dependence on
-         external finance is calculated as the median of all firms'dependence on external finance in a year. They then compute $Dependence_j$ as the time series median of industry $j$'s dependence on external finance.
-        \item They calculate each firm's high-tech intensiveness as the time series median of its annual gross growth in R\&D expenses during the period 1976-2006. 
-              Industry $j$'s high-tech intensiveness is calculated as the cross sectional median of all firms' high-tech intensiveness in that industry.
-        \end{itemize}
-\end{frame}
+@article{zhang2018liquidity,
+  title={Liquidity misallocation in an over-the-counter market},
+  author={Zhang, Shengxing},
+  journal={Journal of Economic Theory},
+  volume={174},
+  pages={16--56},
+  year={2018},
+  publisher={Elsevier}
+}
 
 
-\section{Identification}
-\begin{frame}[c]\frametitle{Identification}
-    \begin{itemize}
-        \item $Innovation_{j,i,t+1}=\beta_0+\beta_1(Equity_{i,t} \times Industry_j)+\beta_2(Credit_{i,t} \times Industry_j)+\beta_3 Value-Added_{j,i,t}+\beta_4 US-Export_{j,i,t}+\eta_{i,t+1}+\mu_j+\varepsilon_{i,j,t+1}$
-        \item $Innovation_{j,i,t+1}$ is $Patent_{j,i,t}$ here. $Industry_j$ is either $Dependence_j$ or $High-tech_j$ that captures economic mechanisms and helps with identification.
-        \item $\eta_{i,t+1}$ is the country-year fixed effect. $\mu_j$ is the industry fixed effect.
-        \end{itemize}
-\end{frame}
+@article{zhu2012finding,
+  title={Finding a good price in opaque over-the-counter markets},
+  author={Zhu, Haoxiang},
+  journal={The Review of Financial Studies},
+  volume={25},
+  number={4},
+  pages={1255--1285},
+  year={2012},
+  publisher={Society for Financial Studies}
+}
 
-\section{Result}
-\begin{frame}[c]\frametitle{Result}
-    \begin{figure}
-        \begin{center}
-        \includegraphics[width=1.1\textwidth]{1}
-        \end{center}
-        \end{figure} 
-\end{frame}
+@article{afonso2013trading,
+  title={Trading partners in the interbank lending market},
+  author={Afonso, Gara and Kovner, Anna and Schoar, Antoinette},
+  journal={FRB of New York Staff Report},
+  number={620},
+  year={2013}
+}
+@article{10.1093/restud/rdac014,
+    author = {Farboodi, Maryam and Jarosch, Gregor and Shimer, Robert},
+    title = "{The Emergence of Market Structure}",
+    journal = {The Review of Economic Studies},
+    year = {2022},
+    month = {03},
+    abstract = "{We study a model of over-the-counter trading in which ex ante identical traders invest in a contact technology and participate in bilateral trade. We show that a rich market structure emerges both in equilibrium and in an optimal allocation. There is continuous heterogeneity in market access under weak regularity conditions. If the cost per contact is constant, heterogeneity is governed by a power law and there are middlemen, market participants with unboundedly high contact rates who account for a positive fraction of meetings. Externalities lead to overinvestment in equilibrium, and policies that reduce investment in the contact technology can improve welfare. We relate our findings to important features of real-world trading networks.}",
+    issn = {0034-6527},
+    doi = {10.1093/restud/rdac014},
+    url = {https://doi.org/10.1093/restud/rdac014},
+    note = {rdac014},
+    eprint = {https://academic.oup.com/restud/advance-article-pdf/doi/10.1093/restud/rdac014/42991887/rdac014.pdf},
+}
+@article{atkeson2015entry,
+  title={Entry and exit in otc derivatives markets},
+  author={Atkeson, Andrew G and Eisfeldt, Andrea L and Weill, Pierre-Olivier},
+  journal={Econometrica},
+  volume={83},
+  number={6},
+  pages={2231--2292},
+  year={2015},
+  publisher={Wiley Online Library}
+}
 
-\begin{frame}[c]\frametitle{Result}
-    \begin{figure}
-        \begin{center}
-        \includegraphics[width=1.1\textwidth]{2}
-        \end{center}
-        \end{figure} 
-\end{frame}
+@article{afonso2011liquidity,
+  title={Liquidity and congestion},
+  author={Afonso, Gara},
+  journal={Journal of Financial Intermediation},
+  volume={20},
+  number={3},
+  pages={324--360},
+  year={2011},
+  publisher={Elsevier}
+}
 
-\section{conclusion}
-\begin{frame}[c]\frametitle{Conclusion}
-    \begin{itemize}
-        \item By Using a large data set that includes 32 countries between 1976 and 2006 and a fixed effects identification strategy, they show that industries that are more dependent on external finance and that are more high-tech intensive
-        exhibit a disproportionally higher innovation level in countries with better developed equity markets. However, the development of credit markets appears to discourage innovation.
-        \item Economies with good growth opportunities develop financial markets to provide the funds necessary to support their good growth prospects.Simultaneity problem may still exist.
+@article{sambalaibat2022theory,
+  title={A theory of liquidity spillover between bond and CDS markets},
+  author={Sambalaibat, Batchimeg},
+  journal={The Review of Financial Studies},
+  volume={35},
+  number={5},
+  pages={2525--2569},
+  year={2022},
+  publisher={Oxford University Press}
+}
 
-        \end{itemize}
-\end{frame}
-\end{document}
+@article{garleanu2009portfolio,
+  title={Portfolio choice and pricing in illiquid markets},
+  author={G{\^a}rleanu, Nicolae},
+  journal={Journal of Economic Theory},
+  volume={144},
+  number={2},
+  pages={532--564},
+  year={2009},
+  publisher={Elsevier}
+}
+
+@article{lagos2009liquidity,
+  title={Liquidity in asset markets with search frictions},
+  author={Lagos, Ricardo and Rocheteau, Guillaume},
+  journal={Econometrica},
+  volume={77},
+  number={2},
+  pages={403--426},
+  year={2009},
+  publisher={Wiley Online Library}
+}
+
+@article{afonso2015trade,
+  title={Trade dynamics in the market for federal funds},
+  author={Afonso, Gara and Lagos, Ricardo},
+  journal={Econometrica},
+  volume={83},
+  number={1},
+  pages={263--313},
+  year={2015},
+  publisher={Wiley Online Library}
+}
+
+@article{uslu2019liquidity,
+  title={Liquidity in the cross section of otc assets},
+  author={Uslu, Semih and Velioglu, Guner},
+  journal={Available at SSRN 3629867},
+  year={2019}
+}
+
+@article{uslu2019pricing,
+  title={Pricing and liquidity in decentralized asset markets},
+  author={{\"U}sl{\"u}, Semih},
+  journal={Econometrica},
+  volume={87},
+  number={6},
+  pages={2079--2140},
+  year={2019},
+  publisher={Wiley Online Library}
+}
+
 
 

@@ -1,164 +1,3 @@
-
-\documentclass[12pt]{article}
-% 这里是设置四边边距
-\usepackage[top=1.25in, bottom=1.25in, left=1.25in, right=1.25in]{geometry} 
-\usepackage[utf8]{inputenc} % Uses the utf8 input encoding
-% --------------- math --------------- %
-\usepackage{amssymb}
-\usepackage{amsmath} % For typesetting math
-\usepackage{mathrsfs}
-% ---------------- fonts --------------- %
-\usepackage[T1]{fontenc}
-\usepackage{txfonts} % Times
-%\usepackage{ccfonts} % CM Concrete
-%\usepackage{cmbright} % CM Bright
-% 
-\usepackage{ntheorem} % Introduce the theorem environment
-\usepackage[colorlinks,
-            linkcolor=blue,
-            ]{hyperref}
-\usepackage{listings} % A source code printer
-\usepackage{flafter}
-\usepackage{indentfirst} % Para. indent at first line
-\usepackage{setspace}
-\usepackage{color}
-\usepackage{graphicx}
-%
-% --------------- citing --------------- %
-\usepackage{natbib}
-% \usepackage{apacite}
-\usepackage{hyperref}
- \hypersetup{
-       colorlinks = False,
-       urlcolor = Sepia,
-       citecolor = MidnightBlue
- }
-%
-\linespread{2} % 行间距 
-\setlength{\parskip}{4pt} % 段间距
-\setlength{\parindent}{2em} % 段首行空两个字
-
-\renewcommand\thesection{\Roman{section}}
-\renewcommand\thesubsection{\roman{subsection}}
-
-\renewcommand\bibname{References}
-
-\title{Search Theory and Over-the-Counter Markets}
-\author{Xin Wang}
-\date{\today}
-
-%--------------------------------------------------%
-%                  Document Begin                  %
-%--------------------------------------------------%
-
-\begin{document}
-
-\maketitle
-
-%--------------------------------------------------%
-%           Question, Data and Approach            %
-%--------------------------------------------------%
-\section{Introduction}
-\par
-Centralized financial markets are often all-to-all trading platforms with strict transparency policy. 
-For example, Many main stock exchanges, American Stock Exchange, Toronto Stock Exchange, 
-are organized in this way. But nowadays more than half of the financial trade take place in the
-decentralized markets (or over-the-counter market) rather than centralized markets. Over-the-counter (OTC) markets are typically extremely fragmented. The investors may trade with only one
-dealer or a few dealers. There is often very weak transparency policy in OTC markets. Investors don't know how many quotes can be traded before their negotiation with dealers. The quates and 
-prices are not publicly announced, which may lead to investors' imperfect information about overall market conditions. The typical assets that are traded in the OTC markets are fixed-income securities, 
-derivatives, repos, and federal funds loans. In 2018, the value of all domestic assets traded in OTC markets are more than 50000 billion US dollars which exceed the assets value traded in the 
-centralized markets by over 20000 billion US dollars (\citet{weill2020search}). 
-\par
-The OTC markets play a key role in 2008 financial crisis and are in the center of many policy debates. In the financial crisis, the trading volume in many OTC markets collapse, which leads to 
-debate on the reactions the government should take. Should the government engage in large-scale purchase of mortgage-backed securities (MBS)? Should the assets traded previously in the OTC 
-markets now be traded in the more centralized financial markets with more transparent information disclosure mechanism? Should those credit derivatives be centrally cleared to deal with systemic 
-risk existed in the OTC markets for credit derivatives? All of these policy debates require rigorous theoretical analysis for OTC markets as basis.
-\par
-It is very natural to apply search theory to the study OTC markets. There are several reasons to justify search theory provides reasonable and tractable method. First, OTC markets are typically 
-extremely fragmented, which means investors need time to search for the potential dealer rather than can find dealers instantly in the centralized financial market. Second, investors can choose who 
-they want to trade and when they trade, there is no restriction which force the investor to trade with any group or any particular dealer. Third, there is opportunity cost which may be enhanced by the 
-pricing mechanism for investors to delay the trade. Financially distressed institutions are often willing to concede a huge magnitude of price, which support that delaying trade is very costly \citet{duffie2010presidential}.
-
-\section{Benchmark Model}
-\par
-Most literature analyzing OTC markets follow the pioneering work by \citet{duffie2005over}. In their model, they assume there are four types of investors according to whether they endowed and 
-hold assets (pay dividends each period) and whether they need to pay a cost when they hold assets. At the successive event times of a Poisson process, all four types of investors can contact another 
-investor from the investor population followed with a uniform distribution. They also assume investor can meet with a marketmaker when the investor needs to bargain the term of trade with 
-marketmakers. Marketmakers can buy the assets from $lo$ investors (hold assets but need to pay a fixed cost) and sell assets to $hn$ (don't hold assets and don't need to pay cost when hold) investors. 
-Meanwhile, marketmakers have access to an interdealer market where marketmakers can trade the assets immediately.
-\par
-They prove there is a unique constant steady-state equilibrium in their model. In equilibrium, only $lo$ investors and $hn$ investors want to trade. They bargain over the price of assets when 
-they contact each other. When they meet with the marketmakers, they also bargain over the price. An investor's bargaining power depends on the availability (how quickly she can find another 
-counterparty or another marketmaker) of other potential trader. An marketmaker's bargaining power depends on the price interdealer offers. 
-\par
-They consider their model in several extreme cases. First, when there is only a monopolistic marketmaker, the ask price (when marketmaker sell the assets to $lo$ investors) is larger than the 
-price negotiated between $hn$ and $lo$ investors, and the bid price (when marketmaker buy the assets from $hn$ investors) is lower than the price negotiate between $hn$ and $lo$ investors. 
-Second, when investors contact each other more quickly or the intermediation by competing marketmakers become faster, the three prices converge to the same price which determined in the 
-Walrasian equilibrium, while the result become a little different in monopolistic marketmaker case. If investors contact with each other more quickly, the bid-ask spread (difference between ask price 
-and bid price) disappears. However, if investors contact with marketmaker more frequently, the bid-ask spread will increase due to the relatively poorer outside options for the investors. If the 
-marketmaker already meet the most need for trading, then it is harder for investor to find a counterparty herself, which will lower the bargaining position of investors with marketmaker. Third, 
-they consider the case where the investor may have different level of access to marketmakers, they show those investors with better access to marketmaker will face smaller bid-ask spread. There may 
-be no chance to trade for those investors who have lower search intensity. Fourth, if marketmakers can choose their search intensity, a monopolistic marketmaker will replace many trades between 
-$lo$ and $hn$ investor, which will cause efficiency loss. The social welfare may be even worse in the competitive marketmaker case where marketmakers provide even more intermediation.
-\section{Following development}
-\par
-After \citet{duffie2005over}, many researchers try to reconsider their model in the new environment and extend their model into different directions. The following literature review 
-is organized by the new methodology or new theme the researchers consider in their papers.
-
-\subsection{Fully Decentralized Markets}
-
-\subsection{Entry Decision}
-\par
-In the benchmark model, the number of investors and marketmakers are exogeneously given. They can't choose to enter or exit markets. Many researchers study the effect of endogenous entry decisions in the models.
-\citet{afonso2011liquidity} shows the entry of investors can reduce trading cost, but also may casue concentration on one side of market which reduce the return to enter the markets. These two effects have different 
-effects on new investors' entry decision. \citet{atkeson2015entry} establish a model to analyze the welfare effect of bankers' decisions on entry and role in the markets. They show bankers have two incentive (hedge risk 
-and make intermediation profits) to enter the markets. There is often too many bankers entering markets as dealers and too little bankers entering markets as customers than the social optimality. Bankers may exit too much 
-than the social optimality when the economy faces a negative shock. \citet{gavazza2016empirical} finds excessive entry of dealers which causing welfare loss in the secondary market of commercial aircraft. \citet{sambalaibat2022theory} consider
- a model for bond and credit default swap (CDS) markets where investors can decide on their participation. They show CDS can attract new investors into the credit market and increase the price and liquidity of bonds.
- \citet{10.1093/restud/rdac014} propose a model in which investors can invest on different contact technology. If the cost of investment on contact technology is linear, there will be overinvestment on contact technology in equilibrium.
-
-\subsection{Repeated Trade}
-\par
-In the labor search model, such as \citet{burdett1998wage},workers usually can have a long-term relationship with firms and their relationship is exclusive. Unlike what the labor search models
-often assume, in the most search models of OTC markets, buyer and seller can only trade once and they can't form any long-term relationship. There are few exception. \citet{zhang2018liquidity} 
-establishs a framework in which dealers and traders can form a long-term relationship to understand the Liquidity misallocation in OTC markets.\citet{zhu2012finding} provides a dynamic model of
-opaque OTC markets. They show if the seller repeat concacting the same buyer, it will reveal the limited outside options of seller to buyer, which lead to worse price of assets offered by buyer.
-\citet{afonso2013trading} also show that trading relationships is not exclusive in the US overnight interbank lending market. Borrowers and lenders can form many simultaneous relationships. 
-\subsection{Asset Holdings}
-\par
-Because \citet{duffie2005over} assume investors have linear utility, they can restrict their attension to the case investors either hold one or zero units of asset. If we assume the investors have 
-more sophisticated utility, then we should consider how the investors decide on the amount of assets they hold. \citet{garleanu2009portfolio} finds the optimal portfolio choice of investors depend
-on the liquidity when they remove the assumption of either one or zero units of asset holdings.\citet{lagos2009liquidity} shows,by assuming unrestricted asset holdings, the individual asset demands 
-shape the volume of trading, bid-ask spreads, and trading delays.Recent literature consider the unrestricted asset holdings in fully decentralized markets. \citet{afonso2015trade} develop a search model 
-for federal fund markets which explains the determinants of federal fund rate and market reallocation. In the work by \citet{uslu2019pricing}, he assumes investors are heterogenous in preferences, 
-inventories, and meeting rates. The Investors with higher meeting rates determine the intermediation patterns and they tend to have more extreme asset holdings. \citet{uslu2019liquidity} propose a 
-dynamic model with multi-asset holdings and show how cross-asset spillover effects shape the trade volume, price dispersion based on their model.
-\subsection{Structural Estimation}
-\par
-Rigorous empirical studies focusing on structural estimation of search model for OTC markets are sparse. Among the rare literature on structural research of OTC markets, \citet{feldhutter2012same} 
-uses the difference between prices paid by small traders and those paid by large traders to identify the liquidity crises based on a search model of OTC markets with periods investors have selling 
-pressures. He proposes a maximum likelihood method to estimate parameters of the model by using corporate bond transactions data from the TRACE database. \citet{gavazza2016empirical} estimates a search 
-model of OTC markets to quantify the effect of trading friction on welfare and the effects of intermediaries on trade in the commercial aircraft markets.\citet{brancaccio2017learning}  propose 
-and estimate a dynamic model of OTC markets which explains the dealers' learning in the municipal bond market. \citet{liu2020dealers} proposes a model with dealers choosing different search 
-intensities and estimate the model using transaction data on U.S. corporate bonds. \citet{coen2022structural} propose and estimate a model of OTC markets in which firms have heterogeneous search costs.
-This enable them to study the reliance of market liquidity and its effects on trade stress,bank capital regulation and new trading technologies.
-
-
-
-%--------------------------------------------------%
-%                     Reference                    %
-%--------------------------------------------------%
-\newpage
-
-\bibliographystyle{apalike}
-\bibliography{ref}
-
-
-
-
-
-\end{document}
-
 @article{weill2020search,
   title={The search theory of over-the-counter markets},
   author={Weill, Pierre-Olivier},
@@ -369,5 +208,361 @@ This enable them to study the reliance of market liquidity and its effects on tr
   publisher={Wiley Online Library}
 }
 
+@article{zou2019information,
+  title={Information acquisition and liquidity traps in over-the-counter markets},
+  author={Zou, Junyuan},
+  journal={Available at SSRN 3314735},
+  year={2019}
+}
 
+@article{bethune2022information,
+  title={An information-based theory of financial intermediation},
+  author={Bethune, Zachary and Sultanum, Bruno and Trachter, Nicholas},
+  journal={The Review of Economic Studies},
+  volume={89},
+  number={5},
+  pages={2381--2444},
+  year={2022},
+  publisher={Oxford University Press}
+}
+
+@article{neklyudov2019bid,
+  title={Bid-ask spreads and the over-the-counter interdealer markets: Core and peripheral dealers},
+  author={Neklyudov, Artem},
+  journal={Review of Economic Dynamics},
+  volume={33},
+  pages={57--84},
+  year={2019},
+  publisher={Elsevier}
+}
+
+@techreport{farboodi2019intermediation,
+  title={Intermediation as Rent Extraction},
+  author={Farboodi, Maryam and Jarosch, Gregor and Menzio, Guido and Wiriadinata, Ursula and others},
+  year={2019}
+}
+@article{yang2021coordination,
+  title={Coordination and fragility in liquidity provision},
+  author={Yang, Ming and Zeng, Yao},
+  journal={Available at SSRN 3265650},
+  year={2021}
+}
+
+@article{tse2021inter,
+  title={Inter-dealer trades in OTC markets--Who buys and who sells?},
+  author={Tse, Chung-Yi and Xu, Yujing},
+  journal={Review of Economic Dynamics},
+  volume={39},
+  pages={220--257},
+  year={2021},
+  publisher={Elsevier}
+}
+
+@article{dugast2022theory,
+  title={A theory of participation in OTC and centralized markets},
+  author={Dugast, J{\'e}r{\^o}me and {\"U}sl{\"u}, Semih and Weill, Pierre-Olivier},
+  journal={The Review of Economic Studies},
+  volume={89},
+  number={6},
+  pages={3223--3266},
+  year={2022},
+  publisher={Oxford University Press}
+}
+@article{camargo2014trading,
+  title={Trading dynamics in decentralized markets with adverse selection},
+  author={Camargo, Braz and Lester, Benjamin},
+  journal={Journal of Economic Theory},
+  volume={153},
+  pages={534--568},
+  year={2014},
+  publisher={Elsevier}
+}
+
+@article{hugonnier2020frictional,
+  title={Frictional intermediation in over-the-counter markets},
+  author={Hugonnier, Julien and Lester, Benjamin and Weill, Pierre-Olivier},
+  journal={The Review of Economic Studies},
+  volume={87},
+  number={3},
+  pages={1432--1469},
+  year={2020},
+  publisher={Oxford University Press}
+}
+
+@article{afonso2011trade,
+  title={Trade Dynamics in the Market for Federal Funds},
+  author={Afonso, Gara and Lagos, Ricardo},
+  year={2011}
+}
+
+@article{vayanos2007search,
+  title={Search and endogenous concentration of liquidity in asset markets},
+  author={Vayanos, Dimitri and Wang, Tan},
+  journal={Journal of Economic Theory},
+  volume={136},
+  number={1},
+  pages={66--104},
+  year={2007},
+  publisher={Elsevier}
+}
+
+@article{chiu2016trading,
+  title={Trading dynamics with adverse selection and search: Market freeze, intervention and recovery},
+  author={Chiu, Jonathan and Koeppl, Thorsten V},
+  journal={The Review of Economic Studies},
+  volume={83},
+  number={3},
+  pages={969--1000},
+  year={2016},
+  publisher={Wiley-Blackwell}
+}
+
+@article{sultanum2018financial,
+  title={Financial fragility and over-the-counter markets},
+  author={Sultanum, Bruno},
+  journal={Journal of Economic Theory},
+  volume={177},
+  pages={616--658},
+  year={2018},
+  publisher={Elsevier}
+}
+
+@article{choi2021customer,
+  title={Customer liquidity provision: Implications for corporate bond transaction costs},
+  author={Choi, Jaewon and Huh, Yesol and Shin, Sean Seunghun},
+  journal={Available at SSRN 2848344},
+  year={2021}
+}
+
+@article{allen2000financial,
+  title={Financial contagion},
+  author={Allen, Franklin and Gale, Douglas},
+  journal={Journal of political economy},
+  volume={108},
+  number={1},
+  pages={1--33},
+  year={2000},
+  publisher={The University of Chicago Press}
+}
+
+@article{lagos2007search,
+  title={Search in asset markets: Market structure, liquidity, and welfare},
+  author={Lagos, Ricardo and Rocheteau, Guillaume},
+  journal={American Economic Review},
+  volume={97},
+  number={2},
+  pages={198--202},
+  year={2007}
+}
+
+\documentclass[12pt]{article}
+% 这里是设置四边边距
+\usepackage[top=1.25in, bottom=1.25in, left=1.25in, right=1.25in]{geometry} 
+\usepackage[utf8]{inputenc} % Uses the utf8 input encoding
+% --------------- math --------------- %
+\usepackage{amssymb}
+\usepackage{amsmath} % For typesetting math
+\usepackage{mathrsfs}
+% ---------------- fonts --------------- %
+\usepackage[T1]{fontenc}
+\usepackage{txfonts} % Times
+%\usepackage{ccfonts} % CM Concrete
+%\usepackage{cmbright} % CM Bright
+% 
+\usepackage{ntheorem} % Introduce the theorem environment
+\usepackage[colorlinks,
+            linkcolor=blue,
+            ]{hyperref}
+\usepackage{listings} % A source code printer
+\usepackage{flafter}
+\usepackage{indentfirst} % Para. indent at first line
+\usepackage{setspace}
+\usepackage{color}
+\usepackage{graphicx}
+%
+% --------------- citing --------------- %
+\usepackage{natbib}
+% \usepackage{apacite}
+\usepackage{hyperref}
+ \hypersetup{
+       colorlinks = False,
+       urlcolor = Sepia,
+       citecolor = MidnightBlue
+ }
+%
+\linespread{2} % 行间距 
+\setlength{\parskip}{4pt} % 段间距
+\setlength{\parindent}{2em} % 段首行空两个字
+
+
+\renewcommand\bibname{References}
+\title{Search Theory and Over-the-Counter Markets}
+\author{Xin Wang}
+\date{\today}
+
+%--------------------------------------------------%
+%                  Document Begin                  %
+%--------------------------------------------------%
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+\par
+Centralized financial markets are often all-to-all trading platforms with strict transparency policy. 
+For example, Many main stock exchanges, American Stock Exchange, Toronto Stock Exchange, 
+are organized in this way. But nowadays more than half of the financial trade take place in the
+decentralized markets (or over-the-counter market) rather than centralized markets. Over-the-counter (OTC) markets are typically extremely fragmented. The investors may trade with only one
+dealer or a few dealers. There is often very weak transparency policy in OTC markets. Investors don't know how many quotes can be traded before their negotiation with dealers. The quates and 
+prices are not publicly announced, which may lead to investors' imperfect information about overall market conditions. The typical assets that are traded in the OTC markets are fixed-income securities, 
+derivatives, repos, and federal funds loans. In 2018, the value of all domestic assets traded in OTC markets are more than 50000 billion US dollars which exceed the assets value traded in the 
+centralized markets by over 20000 billion US dollars (\citet{weill2020search}). 
+\par
+The OTC markets play a key role in 2008 financial crisis and are in the center of many policy debates. In the financial crisis, the trading volume in many OTC markets collapse, which leads to 
+debate on the reactions the government should take. Should the government engage in large-scale purchase of mortgage-backed securities (MBS)? Should the assets traded previously in the OTC 
+markets now be traded in the more centralized financial markets with more transparent information disclosure mechanism? Should those credit derivatives be centrally cleared to deal with systemic 
+risk existed in the OTC markets for credit derivatives? All of these policy debates require rigorous theoretical analysis for OTC markets as basis.
+\par
+It is very natural to apply search theory to the study OTC markets. There are several reasons to justify search theory provides reasonable and tractable method. First, OTC markets are typically 
+extremely fragmented, which means investors need time to search for the potential dealer rather than can find dealers instantly in the centralized financial market. Second, investors can choose who 
+they want to trade and when they trade, there is no restriction which force the investor to trade with any group or any particular dealer. Third, there is opportunity cost which may be enhanced by the 
+pricing mechanism for investors to delay the trade. Financially distressed institutions are often willing to concede a huge magnitude of price, which support that delaying trade is very costly \citet{duffie2010presidential}.
+
+\section{Benchmark Model}
+\par
+Most literature analyzing OTC markets follow the pioneering work by \citet{duffie2005over}. In their model, they assume there are four types of investors according to whether they endowed with or 
+hold assets (which pay dividends to holders each period) and whether they need to pay a cost when they hold assets. At the successive event times of a Poisson process, all four types of investors can contact another 
+investor from the investor population followed with a uniform distribution. They also assume investor can meet with a marketmaker when the investor needs to bargain the term of trade with 
+marketmakers. Marketmakers can buy the assets from $lo$ investors (hold assets but need to pay a fixed cost) and sell assets to $hn$ investors (don't hold assets and don't need to pay cost when hold). 
+Meanwhile, marketmakers have access to an interdealer market where marketmakers can trade the assets immediately.
+\par
+They prove there is a unique constant steady-state equilibrium in their model. In equilibrium, only $lo$ investors and $hn$ investors want to trade. They bargain over the price of assets when 
+they contact each other. When they meet with the marketmakers, they also bargain over the price. An investor's bargaining power depends on the availability (how quickly she can find another 
+counterparty or another marketmaker) of other potential traders. An marketmaker's bargaining power depends on the price interdealer offers. 
+\par
+They consider their model in several extreme cases. First, when there is only a monopolistic marketmaker, the ask price (when marketmaker sell the assets to $lo$ investors) is larger than the 
+price negotiated between $hn$ and $lo$ investors, and the bid price (when marketmaker buy the assets from $hn$ investors) is lower than the price negotiated between $hn$ and $lo$ investors. 
+Second, when investors contact each other more quickly or the intermediation by competing marketmakers become faster, the three prices converge to the same price which determined in the 
+Walrasian equilibrium, while the result become a little different in monopolistic marketmaker case. If investors contact with each other more quickly, the bid-ask spread (difference between ask price 
+and bid price) disappears. However, if investors contact with marketmaker more frequently, the bid-ask spread will increase due to the relatively poorer outside options for the investors. If the 
+marketmaker already meet the most need for trading, then it is harder for investor to find a counterparty herself, which will lower the bargaining position of investors with marketmaker. Third, 
+they consider the case where the investor may have different level of access to marketmakers, they show those investors with better access to marketmaker will face smaller bid-ask spread. There may 
+be no chance to trade for those investors who have lower search intensity. Fourth, if marketmakers can choose their search intensity, a monopolistic marketmaker will replace many trades between 
+$lo$ and $hn$ investor, which will cause efficiency loss. The social welfare may be even worse in the competitive marketmaker case where marketmakers provide even more intermediation.
+\section{Following development}
+\par
+After \citet{duffie2005over}, many researchers try to reconsider their model in the new environment and extend their model into different directions. The following literature review 
+is organized by the new methodology or new theme the researchers consider in their papers.
+
+\subsection{Fully Decentralized Markets\label{fully}}
+\par
+In the benchmark model, \citet{duffie2005over} assume the trade between marketmakers and interdealers can happen immediately which is equivalent to assume the marketmaker-to-interdealer frictions are relatively 
+smaller than the investor-to-marketmaker frictions. This assumption distinguishs between semi-centralized markets and fully decentralized markets. The empiricadl studies (for exmaple, \citet{liu2020dealers}) show 
+dealers may have heterogeneity in search intensities, search cost, trading volume and tendency to trade more with investors or other dealers. When we focus on the economic environment with heterogenous agents and 
+fully decentralized markets, the agents in the markets will endogenously choose to act as dealers or investors. An intuitive explanation is, given agents have heterogeneous values for the assets, the agents who have
+median value of assets in the whole population will buy and sell assets repeatedly, which lead to much higher gross trade than the net trade. Those agents who have extreme value of assets will mainly buy or sell. In 
+this sense, some agents become dealers, some agents become investors. \citet{afonso2011trade} and \citet{afonso2015trade} do pioneering work in this area. They establish a model for federal funds market with fully 
+decentralized market assumption, which they can use to explain the banks' search and negotiation behaviors.
+
+\par
+Some researchers consider more dimensions of heterogeneity.\citet{neklyudov2019bid}, \citet{uslu2019pricing} and \citet{10.1093/restud/rdac014} consider heterogeneous contact rates. 
+\citet{farboodi2019intermediation} assume different bargaining power among agents.\citet{yang2021coordination} and \citet{tse2021inter} extend the model by allowing dealers have different inventory capacity.
+\citet{dugast2022theory} show heterogeneous private values have negative impact on the scale of OTC markets, while heterogeneous trading capacity increase the scale of OTC markets. 
+\citet{hugonnier2020frictional} extend the benchmark model by modelling the OTC markets as fully decentralized markets with heterogeneity in interdealers' inventory cost. They propose a 
+solution technique to allow them to obtain the closed-form formulas which can be used to in the empirical research.
+
+\par
+Other researchers introduce information asymmetrics in the model.\citet{camargo2014trading} provide a framework to understand how frozen markets suffer from adverse selection. When government try to intervent
+the frozen markets to help the markets recover, the fraction of lemon in the markets is a key determinant in success of intervention.\citet{zou2019information} allow buyers acquire information about asset qaulity. 
+If the current buyers can anticipate the future buyers will acquire information about the asset quality, which will prevent the future buyers to buy lemons, the current buyers would acquire information about asset
+quality to cream-skim the markets. The future buyers know the logic of current buyers and thus will make more effort to acquire information about asset quality to avoid buying lemons. This self-fullfillment will eventually shut the markets down. 
+\citet{bethune2022information} show how asymmetric information induced from different screening ability among investors shape the core-periphery market structure. Investors with higher ability to figure out 
+counterparties' motive of trade trade with more counterparties and take up more trade volume. 
+
+\subsection{Entry Decision\label{entry}}
+\par
+In the benchmark model, the number of investors and marketmakers are exogeneously given. They can't choose to enter or exit markets. If we relax this assumption, we can antipate that the bid-ask spread will reduce and trade 
+volume will increase with more entry of dealers. If dealers enter less, the situation will be the opposite. 
+\par
+Many researchers study the effect of endogenous entry decisions in their models. \citet{afonso2011liquidity} shows the entry of investors can reduce trading cost, but also may casue concentration on one side of market which reduce the return to enter the markets. These two effects have different 
+effects on new investors' entry decision. \citet{atkeson2015entry} establish a model to analyze the welfare effect of bankers' decisions on entry and role in the markets. They show bankers have two incentives (hedge risk 
+and make intermediation profits) to enter the markets. There are often too many bankers entering markets as dealers and too little bankers entering markets as customers than the social optimality. Bankers may exit too much 
+than the social optimality when the economy faces a negative shock. \citet{gavazza2016empirical} finds excessive entry of dealers which causing welfare loss in the secondary market of commercial aircraft. \citet{sambalaibat2022theory} consider
+ a model for bond and credit default swap (CDS) markets where investors can decide on their participation. They show CDS can attract new investors into the credit market and increase the price and liquidity of bonds.
+ \citet{10.1093/restud/rdac014} propose a model in which investors can invest on different contact technology. If the cost of investment on contact technology is linear, there will be overinvestment on contact technology in equilibrium.
+
+\subsection{Repeated Trade}
+\par
+In the labor search model, such as \citet{burdett1998wage}, workers usually can have a long-term relationship with firms and their relationship is exclusive. Unlike what the labor search models
+often assume, in the most search models of OTC markets, buyer and seller can only trade once and they can't form any long-term relationship. There are few exceptions. \citet{zhang2018liquidity} 
+establishs a framework in which dealers and traders can form a long-term relationship to understand the Liquidity misallocation in OTC markets. \citet{zhu2012finding} provides a dynamic model of
+opaque OTC markets. They show if the seller repeats concacting the same buyer, it will reveal the limited outside options of seller to buyer, which lead to worse price of assets offered by buyer.
+\citet{afonso2013trading} also show that trading relationships is not exclusive in the US overnight interbank lending market. Borrowers and lenders can form many simultaneous relationships. 
+\subsection{Asset Holdings\label{hold}}
+\par
+Because \citet{duffie2005over} assume investors have linear utility, they can restrict their attension to the case investors either hold one or zero units of asset. If we assume the investors have 
+more sophisticated utility, then we should consider how the investors decide on the amount of assets they hold. \citet{garleanu2009portfolio} finds the optimal portfolio choice of investors depend
+on the liquidity when they remove the assumption of either one or zero units of asset holdings.\citet{lagos2009liquidity} shows,by assuming unrestricted asset holdings, the individual asset demands 
+shape the volume of trading, bid-ask spreads, and trading delays.Recent literature consider the unrestricted asset holdings in fully decentralized markets. \citet{afonso2015trade} develop a search model 
+for federal fund markets which explains the determinants of federal fund rate and market reallocation. In the work by \citet{uslu2019pricing}, he assumes investors are heterogenous in preferences, 
+inventories, and meeting rates. The Investors with higher meeting rates determine the intermediation patterns and they tend to have more extreme asset holdings. \citet{uslu2019liquidity} propose a 
+dynamic model with multi-asset holdings and show how cross-asset spillover effects shape the trade volume, price dispersion based on their model.
+\subsection{Multiple Equilibria\label{mult}}
+\par
+In many search model of OTC markets, multiple equilibria exist. This may result from increasing returns in matching (for example see \citet{vayanos2007search} ), private information (\citet{chiu2016trading}) 
+or other reasons (\citet{lagos2007search}, \citet{sultanum2018financial}). Multiple equilibria can explain why similar agents or assets have differnt development patterns. It's also a good perspective to understand market fragility.
+\subsection{Structural Estimation}
+\par
+Rigorous empirical studies focusing on structural estimation of search model for OTC markets are sparse. Among the rare literature on structural research of OTC markets, \citet{feldhutter2012same} 
+uses the difference between prices paid by small traders and those paid by large traders to identify the liquidity crises based on a search model of OTC markets with periods investors have selling 
+pressures. He proposes a maximum likelihood method to estimate parameters of the model by using corporate bond transactions data from the TRACE database. \citet{gavazza2016empirical} estimates a search 
+model of OTC markets to quantify the effect of trading friction on welfare and the effects of intermediaries on trade in the commercial aircraft markets.\citet{brancaccio2017learning}  propose 
+and estimate a dynamic model of OTC markets which explains the dealers' learning in the municipal bond market. \citet{liu2020dealers} proposes a model with dealers choosing different search 
+intensities and estimate the model using transaction data on U.S. corporate bonds. \citet{coen2022structural} propose and estimate a model of OTC markets in which firms have heterogeneous search costs.
+This enables them to study the reliance of market liquidity and its effects on trade stress, bank capital regulation and new trading technologies.
+
+
+\newpage
+\section*{Research Proposal}
+\par
+In the most models of semi-centralized markets and fully decentralized markets, it's often assumed that buyers and sellers can contact and trade with each other. But in many OTC markets, this assumption 
+doesn't hold. In those OTC asset markets, agents can only contact and trade indireactly through dealers. Meanwhile, dealers can also trade in the inter-dealer markets besides work as middlemen. Thus 
+it may create intermediation chains (For exmaple see \citet{choi2021customer}). 
+\par
+what's pros and cons of inter-dealer markets? What factors drive the development of inter-dealer markets? Given the assumption that dealer can have asset inventory and need to pay cost for holding assets,
+inter-dealer markets may enhance dealers' management of inventory, but also may result in higher costs of intermediation. Moreover, as \citet{allen2000financial} show, the more complex the markets are, the
+more fragile the economy is. In this researh proposal, I want to study trade patterns in inter-dealer markets and how the trade patterns influence the market fragility.
+\par
+This proposal try to explore the market structures in OTC markets. In this sense, this proposal is related to the benchmark model by \citet{duffie2005over} and the broad literature on the entry decision 
+(see section\ref*{entry}). This literature may assume heterogeneity in initial assets (\citet{afonso2015trade}), liquidity demand (\citet{atkeson2015entry}), contact rate (\citet{10.1093/restud/rdac014}) 
+or both liquidity demand and contact rate (\citet{uslu2019pricing}). I don't assume the trade in the inter-dealer markets can be executed instantly, thus my model focus on fully decentralized market (see section\ref*{fully}) 
+with restriction on trade between investors. My model is similar to \citet{hugonnier2020frictional} but with emphasis on the market fragility. Moreover, this proposal consider the market fragility stemmed 
+from the multiple equilibria perspective, so it's close to the literature discuss in section\ref*{mult}. Because I want to consider dealers' inventory, this proposal is also related to those unrestricted asset holding literature 
+(see section\ref*{hold}, \citet{garleanu2009portfolio}, \citet{lagos2009liquidity}, \citet{afonso2015trade}, \citet{uslu2019pricing} and \citet{uslu2019liquidity}).
+\par
+My model is based on \citet{hugonnier2020frictional}. There are three type of agents, buyers, sellers and dealers. I assume the value of one unit asset for buyers is $\delta$, and the value for sellers and dealers
+is same, which is normalized to 0. Seller is endowed with one unit of asset and buyer is born with nothing. They enter the markets with same rate $\phi$ and search for a dealer according to an independent Poisson process with rate $\lambda_1$. 
+when they match with a dealer and successfully trade with her, they will leave the market. I also assume the matches or trade can fail, which result in buyers or sellers leaving the market. This follows an independent Poisson process with rate $\gamma$.
+\par
+The mass of Dealers are exogeneously given and normalized to 1. Dealers can hold assets and need to pay inventory cost (convex in the assets they hold) every period. To simplify the questions, here I assume there are only three holding positions
+in which dealer can hold 0, 1 or 2 units of asset. I normalize the cost of holding 0 unit of asset to 0. Besides working as middlemen for buyers and sellers, dealers can meet and trade with other dealers in the inter-dealer market. This follows 
+an independent Poisson process with rate $\lambda_2$. When agents match with another agent, the price is determined by Nash bargaining and the bargaining powers among all types of matching are assumed to be equal. Based on this framework, I can 
+charaterize the steady-state equilibria where the mass of buyers and sellers and the mass of dealers in three holding positions are constant over time. The analysis of equilibria is left for future work.
+\par
+This research will be meaningful for financial economist because it will shed light on understanding market fragility without huge shocks. It will also provides a basis for quantitative analysis of fragility in OTC markets.
+
+%--------------------------------------------------%
+%                     Reference                    %
+%--------------------------------------------------%
+\newpage
+
+\bibliographystyle{apalike}
+\bibliography{ref}
+
+
+
+
+
+\end{document}
 
